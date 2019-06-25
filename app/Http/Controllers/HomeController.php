@@ -36,5 +36,8 @@ class HomeController extends Controller
         if($config_variables){
             return redirect()->back()->with('message', 'IT WORKS!');
         }
+        echo '<pre>';
+        print_r($config_variables);
+        exit;
     }
 }
