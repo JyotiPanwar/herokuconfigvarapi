@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use HerokuClient\Client as HerokuClient;
+use App\Components\HerokuApi as HerokuApi;
 
 
 class HomeController extends Controller
@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth');    
     }
 
     /**
@@ -26,10 +26,15 @@ class HomeController extends Controller
     public function index()
     {   
         $config_variables=[];
-        $heroku = new HerokuClient([
-            'apiKey' => env('HEROKU_API_KEY'), 
-        ]);
-        $config_variables = $heroku->get('apps/configapis/config-vars');
+        $config_variables = (new HerokuApi)->init()->get('apps/configapis/config-vars');
         return view('home')->with('config_variables',$config_variables);
+    }
+    public function updateConfigVars(Request $request)
+    {
+      
+        $config_variables = (new HerokuApi)->init()->patch('apps/configapis/config-vars', $request->all());
+        if($config_variables){
+            return redirect()->back()->with('message', 'IT WORKS!');
+        }
     }
 }
