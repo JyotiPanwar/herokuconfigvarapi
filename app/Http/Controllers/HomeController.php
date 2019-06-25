@@ -26,13 +26,13 @@ class HomeController extends Controller
     public function index()
     {   
         $config_variables=[];
-        $config_variables = (new HerokuApi)->init()->get('apps/configapis/config-vars');
+        $config_variables = (new HerokuApi)->init()->get('apps/jyotiucreate/config-vars');
         return view('home')->with('config_variables',$config_variables);
     }
     public function updateConfigVars(Request $request)
     {
       
-        $config_variables = (new HerokuApi)->init()->patch('apps/configapis/config-vars', $request->all());
+        $config_variables = (new HerokuApi)->init()->patch('apps/jyotiucreate/config-vars', $request->all());
         if($config_variables){
             return redirect()->back()->with('message', 'IT WORKS!');
         }
