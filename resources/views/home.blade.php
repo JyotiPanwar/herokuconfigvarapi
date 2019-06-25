@@ -15,6 +15,11 @@
                     @endif
 
                     You are logged in!
+                     @if ($config_variables)
+                        @foreach($config_variables AS $key=>$val)
+                            <p><b>{{ $key }}: </b>{{ $val }}</p>
+                        @endforeach
+                     @endif
                 </div>
             </div>
         </div>
