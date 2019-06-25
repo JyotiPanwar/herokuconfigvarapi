@@ -1,4 +1,9 @@
 <?php
+$url      = parse_url(getenv("DATABASE_URL"));
+$host     = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 
 use Illuminate\Support\Str;
 
@@ -15,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
