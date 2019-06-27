@@ -5,7 +5,7 @@
 
 1. Get Heroku API key from Heroku account setting page.
 2. Write it in .env file ex. HEROKU_API_KEY=xyz.
-3  Add Heroku app name/key in .env file. That is name of app where config variables need to manipulate.
+3.  Add Heroku app name/key in .env file. That is name of app where config variables need to manipulate.
 4. Install package:  $ composer require php-heroku-client/php-heroku-client
 5. Created Component to extend HerokuClient <a href="https://github.com/JyotiPanwar/herokuconfigvarapi/blob/master/app/Components/HerokuApi.php">Component</a>
 
