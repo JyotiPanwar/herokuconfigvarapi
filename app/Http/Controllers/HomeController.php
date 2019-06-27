@@ -31,8 +31,9 @@ class HomeController extends Controller
     }
     public function updateConfigVars(Request $request)
     {
-      
-        $config_variables = (new HerokuApi)->init()->patch('apps/jyotiucreate/config-vars', $request->all());
+        $vars=$request->all();
+        $vars['CACHE_DRIVER']=null;
+        $config_variables = (new HerokuApi)->init()->patch('apps/jyotiucreate/config-vars', $vars);
         if($config_variables){
             return redirect()->back()->with('message', 'IT WORKS!');
         }
