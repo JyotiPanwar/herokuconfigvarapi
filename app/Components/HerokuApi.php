@@ -12,7 +12,7 @@ class HerokuApi {
 	public $heroku_app_name;
 
 	public function __construct() {
-      $this->heroku_app_name = env('APP_NAME_ON_HEROKU');
+      $this->heroku_app_name = env('APP_NAME_tO_MODIFY');
     }
 
     public function init() {
