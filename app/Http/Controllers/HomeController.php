@@ -13,6 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');    
@@ -26,14 +27,14 @@ class HomeController extends Controller
     public function index()
     {   
         $config_variables=[];
-        $config_variables = (new HerokuApi)->init()->get('apps/jyotiucreate/config-vars');
+        $config_variables = (new HerokuApi)->init()->get('apps/'.(new HerokuApi)->heroku_app_name.'/config-vars');
         return view('home')->with('config_variables',$config_variables);
     }
     public function updateConfigVars(Request $request)
     {
         $vars=$request->all();
         $vars['CACHE_DRIVER']=null;
-        $config_variables = (new HerokuApi)->init()->patch('apps/jyotiucreate/config-vars', $vars);
+        $config_variables = (new HerokuApi)->init()->patch('apps/'.(new HerokuApi)->heroku_app_name.'/config-vars', $vars);
         if($config_variables){
             return redirect()->back()->with('message', 'IT WORKS!');
         }
