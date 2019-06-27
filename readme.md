@@ -14,16 +14,17 @@
 		]);
 		
 6. API to manipulate config variables
-
-		<b>FETCH CONFIG VARIABLES</b>
+		
+		FETCH CONFIG VARIABLES
+		
 
 		$currentDynos = $heroku->get('apps/my-heroku-app-name/config-vars');
 
-		<b>UPDATE CONFIG VARIABLES</b>
+		UPDATE CONFIG VARIABLES
 		
 		$heroku->patch('apps/my-heroku-app-name/config-vars', $data_array['key'=>'value']);
 		
-		<b>DELETE CONFIG VARIABLES</b>
+		DELETE CONFIG VARIABLES
 		
 		$heroku->patch('apps/my-heroku-app-name/config-vars', $data_array['key'=>Null]);
 		
