@@ -10,9 +10,11 @@ use App\Models\{
 class HerokuApi {
 
 	public $heroku_app_name;
+	public $heroku_api_key;
 
 	public function __construct() {
-      $this->heroku_app_name = env('APP_NAME_tO_MODIFY');
+      $this->heroku_app_name = env('APP_NAME_TO_MODIFY');
+      $this->heroku_api_key = env('HEROKU_API_KEY');
     }
 
     public function init() {
