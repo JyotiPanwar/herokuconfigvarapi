@@ -30,4 +30,5 @@
 		
 For demo : <a href="https://github.com/JyotiPanwar/herokuconfigvarapi/blob/master/app/Http/Controllers/HomeController.php">check home controller</a>	
 
+Example/demo: http://configapis.herokuapp.com/home
 
