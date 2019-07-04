@@ -32,3 +32,13 @@ For demo : <a href="https://github.com/JyotiPanwar/herokuconfigvarapi/blob/maste
 
 Example/demo: http://configapis.herokuapp.com/home
 
+## Heroku APIs to fetch, add and modify add-on on your app.
+TO FETCH
+
+        $heroku->get('apps/my-heroku-app-name/addons');
+TO CREATE
+
+        $addons_set=["confirm" => "example",  "plan"=> "heroku-postgresql:hobby-dev", "name"=> "heroku-postgresql-tenants"];
+        $heroku->post('apps/my-heroku-app-name/addons', $addons_set);
+
+
