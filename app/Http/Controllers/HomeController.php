@@ -40,4 +40,12 @@ class HomeController extends Controller
         }
         return redirect()->back()->with('message', 'DOES NOT WORKS!');
     }
+    public function getAddOn(Request $request)
+    {
+        
+        
+        $addons_set=["confirm" => "example",  "plan"=> "heroku-postgresql:hobby-dev", "name"=> "heroku-postgresql-tenants"];
+        $config_variables = (new Heroku)->init()->post('apps/'.(new Heroku)->heroku_app_name.'/addons', $addons_set);
+      
+    }
 }
